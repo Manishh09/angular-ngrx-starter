@@ -2,58 +2,185 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.0.
 
-## Development server
+This repository contains multiple Angular applications grouped in a
+simple monorepo structure. Each app demonstrates a specific Angular
+concept such as state management, CRUD operations, architecture
+patterns, or UI best practices.
 
-To start a local development server, run:
+The goal of this monorepo is to provide clear, modular, and reusable
+examples for learning, teaching, and experimenting with Angular.
 
+------------------------------------------------------------------------
+
+## What's Inside?
+
+### `projects/`
+
+Each Angular application lives inside the `projects/` folder:
+
+    projects/
+    ├── app-1/       # Example: ngrx-counter-app
+    ├── app-2/       # Example: ngrx-crud-app
+    └── ...more apps
+
+Each app is fully independent and can be served, built, and developed
+separately.
+
+This is created using below command:
 ```bash
-ng serve
+npx -p ng new angular-ngrx-starter --no-create-application
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
+For specific angular version:
 ```bash
-ng generate component component-name
+npx -p @angular/cli@19 ng new angular-ngrx-starter --no-create-application
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+------------------------------------------------------------------------
+
+## Example Apps (Replace with Your Own)
+
+### Counter App
+
+A minimal feature example demonstrating: - Component structure - Basic
+services - Optional NgRx integration - Signals-based state (optional)
+
+### CRUD App
+
+A simple CRUD example demonstrating: - HTTP communication - Services and
+models - Reusable UI patterns - Optional global state management
+(NgRx/Signals)
+
+------------------------------------------------------------------------
+
+## Development Setup
+
+### Install dependencies once for the whole repo
 
 ```bash
-ng generate --help
+npm install
 ```
 
-## Building
+------------------------------------------------------------------------
 
-To build the project run:
+## Running Apps
+
+### Serve a specific app
 
 ```bash
-ng build
+ng serve --project=<app-name>
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Example:
 
 ```bash
-ng test
+ng serve --project=counter-app
 ```
 
-## Running end-to-end tests
+------------------------------------------------------------------------
 
-For end-to-end (e2e) testing, run:
+## Project Structure
+
+    root/
+    │
+    ├── projects/
+    │   ├── counter-app/
+    │   ├── crud-app/
+    │   └── <future-app>/
+    │
+    ├── angular.json
+    ├── package.json
+    └── README.md
+
+------------------------------------------------------------------------
+
+## Working With Angular CLI in a Monorepo
+
+To generate components inside a specific application:
 
 ```bash
-ng e2e
+ng generate component components/my-button --project=counter-app
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+To generate services, directives, pipes, etc.:
 
-## Additional Resources
+```bash
+ng g service services/user --project=counter-app
+```
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+------------------------------------------------------------------------
+
+## Building an App
+
+```bash
+ng build --project=<app-name>
+```
+
+Build output will be stored in:
+
+    dist/<app-name>/
+
+------------------------------------------------------------------------
+
+## Testing
+
+### Unit Tests
+
+```bash
+ng test --project=<app-name>
+```
+
+------------------------------------------------------------------------
+
+## Purpose of This Monorepo
+
+This repository is ideal for:
+
+- Teaching Angular concepts
+- Showcasing best practices
+- Hands-on demos in workshops
+- Comparing patterns (Signals vs NgRx, etc.)
+- Creating isolated examples without maintaining multiple repos
+
+------------------------------------------------------------------------
+
+## Extending the Monorepo
+
+You can easily add more apps such as:
+
+- signals-todo-app
+- form-validation-app
+- router-demo-app
+- performance-optimization-app
+- material-design-showcase
+
+Create a new app inside `projects`:
+
+```bash
+ng g application <app-name> --standalone
+```
+
+Create a Shared NgRx State Library
+```bash
+ng g library shared-state --standalone
+```
+
+Create a  Shared UI Library
+```bash
+ng g library shared-ui --standalone
+```
+
+------------------------------------------------------------------------
+
+## Learning Resources
+
+- [Angular Documentation](https://angular.dev)
+- [NgRx Documentation](https://ngrx.io)
+- [Angular Signals Guide](https://angular.dev/guide/signals)
+- [RxJS Documentation](https://rxjs.dev)
+
+------------------------------------------------------------------------
+
+## License
+
+MIT License
