@@ -1,4 +1,4 @@
-# NgRx Setup Guide (Beginner-Friendly, Expert-Quality)
+# NgRx Setup Guide
 
 NgRx is a powerful state-management library for Angular, inspired by
 Redux.\
