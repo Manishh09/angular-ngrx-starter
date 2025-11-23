@@ -16,3 +16,8 @@ export const setCounter = createAction(
   props<{ value: number }>()
   //(value: number) => ({ value })
 )
+
+// setDescription action can be added here in future if needed
+export const changeCounterName = createAction(
+  '[Counter] Change Description',
+);

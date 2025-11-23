@@ -1,11 +1,10 @@
+<h3 [style.textAlign]="'center'">{{ counterName$ | async }}</h3>
+
+
 <div class="counter-input">
   <label for="counterValue">Set Counter Value:</label>
-  <input
-    type="number"
-    id="counterValue"
-    [(ngModel)]="counterValue"
-
-  />
+  <input type="number" id="counterValue" [(ngModel)]="counterValue" />
 
   <button (click)="onValueChange()">Update Counter</button>
+  <button (click)="onChangeCounterName()">Change Counter Name</button>
 </div>
